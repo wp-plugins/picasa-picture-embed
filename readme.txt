@@ -3,7 +3,7 @@ Contributors: divinenephron
 Tags: picasa, embed, photo
 Requires at least: 2.9
 Tested up to: 2.9
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 A plugin that allows you to embed picasa photos into your posts with the Wordpress 2.9 embedding feature.
 
@@ -16,7 +16,7 @@ Include the url of the photo on a line of its own or between [embed] tags and th
 
 1. Upload `picasa-picture-embed` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Include the url of the photo on a line of its own or between [embed] tags and the photo will be embedded.
+3. Include the url of the photo on a line of its own or between `[embed]` tags and the photo will be embedded.
 
 == Frequently Asked Questions ==
 
@@ -37,6 +37,7 @@ The plugin caches the photo url so that it does not have to query Google every t
 1. Are you using Wordpress > 2.9?
 2. Have you enabled auto embeds in the `Settings -> Media` page?
 3. Have you used the right url -- only urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}` are supported (e.g. `http://picasaweb.google.com/linmep/PicAutumn09#5410318127990876210`)?
+3. Is the image you're trying to embed visible to the public?
 
 If you can answer "yes" to the above the plugin may indeed be broken.
 
@@ -50,10 +51,10 @@ If you can answer "yes" to the above the plugin may indeed be broken.
 
 = 1.0 =
 * Created the plugin
-* Accepts urls in the form http://picasaweb.google.com/{user}/{album}#{photo}
+* Accepts urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}`
 * Caches urls to avoid querying google on every page visit
 * The cache is invalidated every time the post is saved
-* Automatically chooses the largest necessary size for the photo based on the width and height attributes
+* Automatically chooses the largest necessary size for the photo based on the `width` and `height` attributes
 
 == Upgrade Notice ==
 

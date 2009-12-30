@@ -2,15 +2,15 @@
 /**
  * @package Picasaweb_Embed
  * @author Devon Buchanan
- * @version 0.1
+ * @version 1.0
  */
 /*
 Plugin Name: Picasa Picture Embed
-Plugin URI: http://wordpress.org/#
+Plugin URI: http://wordpress.org/extend/plugins/picasa-picture-embed/
 Description: A plugin that allows you to embed picasa photos with the Wordpress 2.9 embedding feature. Include the url of the photo on a line of its own or between [embed] tags and the photo will be embedded.
 Author: Devon Buchanan
 Version: 1.0
-Author URI: http://www.example.com
+Author URI: http://www.srcf.ucam.org/~db505/
 */
 
 // Add the ./Library directory to the PHP path
