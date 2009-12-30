@@ -3,7 +3,7 @@ Contributors: divinenephron
 Tags: picasa, embed, photo
 Requires at least: 2.9
 Tested up to: 2.9
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 
 A plugin that allows you to embed picasa photos into your posts with the Wordpress 2.9 embedding feature.
 
@@ -36,8 +36,8 @@ The plugin caches the photo url so that it does not have to query Google every t
 
 1. Are you using Wordpress > 2.9?
 2. Have you enabled auto embeds in the `Settings -> Media` page?
-3. Have you used the right url -- only urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}` are supported (e.g. `http://picasaweb.google.com/linmep/PicAutumn09#5410318127990876210`)?
 3. Is the image you're trying to embed visible to the public?
+4. Have you used the right url -- only urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}` are supported (e.g. `http://picasaweb.google.com/linmep/PicAutumn09#5410318127990876210`). Search URLs (e.g. `http://picasaweb.google.com/lh/view?q=leaf&psc=G&filter=1#5325823428363864770`) don't work.
 
 If you can answer "yes" to the above the plugin may indeed be broken.
 
@@ -55,6 +55,9 @@ If you can answer "yes" to the above the plugin may indeed be broken.
 * Caches urls to avoid querying google on every page visit
 * The cache is invalidated every time the post is saved
 * Automatically chooses the largest necessary size for the photo based on the `width` and `height` attributes
+
+= 1.1 =
+* Added support for urls with queries (e.g. `http://picasaweb.google.com/missyann63/PicAutumn09?feat=featured#5409726203440714818`). Note the `?feat=featured`.
 
 == Upgrade Notice ==
 
