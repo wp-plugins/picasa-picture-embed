@@ -3,7 +3,7 @@ Contributors: divinenephron
 Tags: picasa, embed, photo
 Requires at least: 2.9
 Tested up to: 2.9
-Stable tag: 1.1.0
+Stable tag: 1.3.0
 
 A plugin that allows you to embed picasa photos into your posts with the Wordpress 2.9 embedding feature.
 
@@ -66,4 +66,7 @@ If you can answer "yes" to the above the plugin may indeed be broken.
 == Upgrade Notice ==
 
 = 1.0 =
-This is the first version, having it is definite plus
+This is the first version, having it is definite plus.
+
+= 1.3 =
+The plugin has been made a lot smaller and sever bugs have been fixed.

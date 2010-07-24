@@ -2,14 +2,14 @@
 /**
  * @package Picasaweb_Embed
  * @author Devon Buchanan
- * @version 1.2
+ * @version 1.3
  */
 /*
 Plugin Name: Picasa Picture Embed
 Plugin URI: http://wordpress.org/extend/plugins/picasa-picture-embed/
 Description: A plugin that allows you to embed picasa photos with the Wordpress 2.9 embedding feature. Include the url of the photo on a line of its own or between [embed] tags and the photo will be embedded.
 Author: Devon Buchanan
-Version: 1.1
+Version: 1.3
 Author URI: http://www.srcf.ucam.org/~db505/
 */
 
@@ -47,7 +47,7 @@ class Picasaweb_Embed
   {
 		// After a post is saved, invalidate the oEmbed cache
 		add_action( 'save_post', array(&$this, 'delete_picasaweb_caches') );
-    wp_embed_register_handler( 'picasaweb', '|http://picasaweb\.google\.(?P<tld>[A-Za-z.]{2,5})/(?P<username>\w+?)/(?P<albumname>\w+?)(\?[^#]*)?#(?P<photoid>\d+)|i', array(&$this, 'handler'));
+    wp_embed_register_handler( 'picasaweb', '|http://picasaweb\.google\.(?P<tld>[A-Za-z.]{2,5})/(?P<username>[^/]+)/(?P<albumname>[^#?]+)(\?[^#]*)?#(?P<photoid>\d+)|i', array(&$this, 'handler'));
     $this->picasaweb = new Zend_Gdata_Photos();
 		// handler() is dependant on the array being in ascending order
 		sort($this->sizes);
