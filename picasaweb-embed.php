@@ -66,7 +66,10 @@ class Picasaweb_Embed
    * @return string The embed HTML.
    */
   function handler( $matches, $attr, $url, $rawattr ) {
-    global $post;
+    global $post, $wp_embed;
+    $post_ID = ( !empty($post->ID) ) ? $post->ID : null;
+		if ( !empty($wp_embed->post_ID) ) // Potentially set by WP_Embed::cache_oembed()
+			$post_ID = $wp_embed->post_ID;
 
     // Create a query for the photo
     $query = $this->picasaweb->newPhotoQuery();
@@ -74,10 +77,11 @@ class Picasaweb_Embed
     $query->setAlbumName($matches['albumname']);
     $query->setPhotoId($matches['photoid']);
     
-    if ($post->ID) {
+    $html = '';
+    if ($post_ID) {
       // Check the cache
       $cachekey = '_picasaweb_' . md5( $url . serialize( $attr ) );
-      $html = get_post_meta( $post->ID, $cachekey, true );
+      $html = get_post_meta( $post_ID, $cachekey, true );
       // Failures are cached
       if ( '{{unknown}}' === $html ) {
              return false;
@@ -100,7 +104,7 @@ class Picasaweb_Embed
 					return false;
       	} catch (Zend_Gdata_App_Exception $e) {
         	error_log( $e->getMessage(), 0);
-					update_post_meta( $post->ID, $cachekey, '{{unknown}}' );
+					update_post_meta( $post_ID, $cachekey, '{{unknown}}' );
 					return false;
 				}
       	// Expand the image's size to the supplied dimensions
@@ -125,10 +129,17 @@ class Picasaweb_Embed
 					// Use an image smaller than the full size to save bandwidth
 					$url = preg_replace('|(https?:/(?:/[\w.]+?){5})(/[\w.]+)|', "$1/s{$thumbnailSize}$2", $contentUrl);
 				}
-				// Create the embedding HTML
-				$html = '<img src="' . $url . '" width="' . $width . '" height="' . $height . '" />';
+        // Create the embedding HTML, including width and height attributes if they were stated.
+        $html = '<img src="' . $url .'" ';
+        if ( !empty($rawattr['width']) ) {
+          $html .= 'width="' . $width .'" ';
+        }
+        if ( !empty($rawattr['height']) ) {
+          $html .= 'height="' . $height . '" ';
+        }
+        $html .= '/>';
 				// Cache the created HTML
-				update_post_meta( $post->ID, $cachekey, $html );
+				update_post_meta( $post_ID, $cachekey, $html );
 			}
 		}
 		// If there was a result, return it

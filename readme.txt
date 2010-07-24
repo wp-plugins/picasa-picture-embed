@@ -50,14 +50,18 @@ If you can answer "yes" to the above the plugin may indeed be broken.
 == Changelog ==
 
 = 1.0 =
-* Created the plugin
-* Accepts urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}`
-* Caches urls to avoid querying google on every page visit
-* The cache is invalidated every time the post is saved
-* Automatically chooses the largest necessary size for the photo based on the `width` and `height` attributes
+* Created the plugin.
+* Accepts urls in the form `http://picasaweb.google.com/{user}/{album}#{photo}`.
+* Caches urls to avoid querying google on every page visit.
+* The cache is invalidated every time the post is saved.
+* Automatically chooses the largest necessary size for the photo based on the `width` and `height` attributes.
 
 = 1.1 =
 * Added support for urls with queries (e.g. `http://picasaweb.google.com/missyann63/PicAutumn09?feat=featured#5409726203440714818`). Note the `?feat=featured`.
+
+= 1.2 =
+* Removed a lot of the unused Zend framework.
+* Fixes some random bugs.
 
 == Upgrade Notice ==
 
