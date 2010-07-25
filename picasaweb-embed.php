@@ -2,7 +2,7 @@
 /**
  * @package Picasaweb_Embed
  * @author Devon Buchanan
- * @version 1.3
+ * @version 1.4
  */
 /*
 Plugin Name: Picasa Picture Embed
